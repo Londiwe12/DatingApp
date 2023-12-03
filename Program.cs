@@ -4,7 +4,15 @@ using WebApplication9.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
 builder.Services.AddControllers();
 builder.Services.AddDbContext<DataContext>(opt =>
 {
@@ -24,6 +32,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors();
+// Add the following line to allow requests from a specific origin:
+// app.UseCors(builder => builder.WithOrigins("http://localhost:4200"));
 
 app.UseAuthorization();
 

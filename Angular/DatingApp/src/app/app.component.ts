@@ -5,6 +5,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { response } from 'express';
 import { error } from 'console';
 import { Observable } from 'rxjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit {
   users: any;
   readonly APIUrl = "https://localhost:7239/api"
   constructor (private http:HttpClient ){}
+
   getUsersList(): Observable<any[]> {
     return this.http.get<any[]>(this.APIUrl + '/users');
     

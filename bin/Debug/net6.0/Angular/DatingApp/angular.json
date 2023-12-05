@@ -25,6 +25,8 @@
               "src/assets"
             ],
             "styles": [
+   
+         
               "src/styles.css"
             ],
             "scripts": [],
@@ -59,6 +61,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
+       
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {

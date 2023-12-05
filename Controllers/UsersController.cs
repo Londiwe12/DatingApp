@@ -6,9 +6,8 @@ using WebApplication9.Entities;
 
 namespace WebApplication9.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController] // api/users
-    public class UsersController : ControllerBase
+
+    public class UsersController : BaseApiController
        
     {
         private readonly DataContext _context;

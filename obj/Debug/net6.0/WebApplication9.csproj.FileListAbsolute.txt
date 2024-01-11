@@ -92,3 +92,4 @@ C:\Users\londiwe.buthelezi\source\WebApplication9\bin\Debug\net6.0\Angular\Datin
 C:\Users\londiwe.buthelezi\source\WebApplication9\bin\Debug\net6.0\Angular\DatingApp\tsconfig.spec.json
 C:\Users\londiwe.buthelezi\source\WebApplication9\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\londiwe.buthelezi\source\WebApplication9\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\londiwe.buthelezi\source\WebApplication9\bin\Debug\net6.0\Newtonsoft.Json.dll

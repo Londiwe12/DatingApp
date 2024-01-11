@@ -16,6 +16,8 @@ import { AppRoutingModule } from './app.routes';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { RegisterComponent } from "./register/register.component";
 import { Module } from 'module';
+import { TestErrorComponent } from './errors/test-error/test-error.component';
+import { ErrorInterceptor } from './_interceptors/error.interceptor';
 
 
 @Component({
@@ -24,7 +26,7 @@ import { Module } from 'module';
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
     providers: [HttpClientModule],
-    imports: [CommonModule, RouterOutlet, HttpClientModule, NavComponent, FormsModule, AccountService, HomeComponent, RouterModule, RegisterComponent]
+    imports: [CommonModule, RouterOutlet, HttpClientModule, NavComponent, FormsModule, AccountService, HomeComponent, RouterModule, RegisterComponent,TestErrorComponent]
 })
 export class AppComponent implements OnInit {
     title = 'DatingApp';
@@ -46,7 +48,7 @@ export class AppComponent implements OnInit {
     })
   }
   login(){
-    console.log(this.model)
+    console.log(this.model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
   }
     // Import the BsDropdownModule in the component's TypeScript file
     static forRoot() {

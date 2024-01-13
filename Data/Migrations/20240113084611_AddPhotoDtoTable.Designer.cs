@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication9.Data;
 
@@ -11,9 +12,10 @@ using WebApplication9.Data;
 namespace WebApplication9.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240113084611_AddPhotoDtoTable")]
+    partial class AddPhotoDtoTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,7 +77,7 @@ namespace WebApplication9.Data.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("WebApplication9.Entities.Photo", b =>
+            modelBuilder.Entity("WebApplication9.DTOs.PhotoDto", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -83,14 +85,11 @@ namespace WebApplication9.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("AppUserId")
+                    b.Property<int?>("AppUserId")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsMain")
                         .HasColumnType("bit");
-
-                    b.Property<string>("PublicId")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Url")
                         .HasColumnType("nvarchar(max)");
@@ -99,18 +98,14 @@ namespace WebApplication9.Data.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Photos");
+                    b.ToTable("PhotoDto");
                 });
 
-            modelBuilder.Entity("WebApplication9.Entities.Photo", b =>
+            modelBuilder.Entity("WebApplication9.DTOs.PhotoDto", b =>
                 {
-                    b.HasOne("AppUser", "AppUser")
+                    b.HasOne("AppUser", null)
                         .WithMany("Photos")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AppUser");
+                        .HasForeignKey("AppUserId");
                 });
 
             modelBuilder.Entity("AppUser", b =>

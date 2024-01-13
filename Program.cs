@@ -58,5 +58,15 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-
+try
+{
+    var context = app.Services.GetRequiredService<DataContext>();
+    await context.Database.MigrateAsync();
+    await Seed.SeedUsers(context);
+}
+catch (Exception ex)
+{
+    var logger = app.Services.GetService<ILogger<Program>>();
+    logger.LogError(ex, "An error occured during migration");
+}
 app.Run();
